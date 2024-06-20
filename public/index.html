@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop Workflow Builder</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="palette">
+            <h3>Palette</h3>
+            <div id="restApiIcon" class="icon" draggable="true" ondragstart="drag(event)">
+                <img src="images/restapi.png" alt="REST API" class="icon-image">
+            </div>
+            <div id="jsonMapperIcon" class="icon" draggable="true" ondragstart="drag(event)">
+                <img src="images/jsonm.png" alt="JSON Mapper" class="icon-image">
+            </div>
+            <div id="dbConnectorIcon" class="icon" draggable="true" ondragstart="drag(event)">
+                <img src="images/dbc.png" alt="DB Connector" class="icon-image">
+            </div>
+            <div id="filterIcon" class="icon" draggable="true" ondragstart="drag(event)">
+                <img src="images/filter.png" alt="Filter" class="icon-image">
+            </div>
+            <div id="mailIcon" class="icon" draggable="true" ondragstart="drag(event)">
+                <img src="images/mail.png" alt="Send Mail" class="icon-image">
+            </div>
+        </div>
+        <div id="workflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Workflow</h3>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="configuration">
+            <h3>Configuration</h3>
+            <div id="configContent"></div>
+            <div id="codeOutput"></div>
+            <div id="dynamicOutput">
+                <h3>Dynamic Target JSON</h3>
+                <pre id="dynamicTargetJson"></pre>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { allowDrop, drag, drop, dragField, dropField } from './js/dragDrop.js';
+        window.allowDrop = allowDrop;
+        window.drag = drag;
+        window.drop = drop;
+        window.dragField = dragField;
+        window.dropField = dropField;
+    </script>
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
